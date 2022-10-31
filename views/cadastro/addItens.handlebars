@@ -1,0 +1,40 @@
+{{#each erros}}
+    <div class="alert-danger alert">{{text}}</div>
+{{else}}
+
+{{/each}}
+
+<h1>Cadastro de Itens:</h1>
+<div class="card">
+    <div class="card-body">
+        <form action="/cadastro/itens/nova" method="post">
+            <label for="nome">Nome:</label>
+                <input type="text" name="nomeitem" placeholder="Nome" id="nomeitem" class="form-control">
+            <label for="marca">Marca:</label>
+                <input type="text" name="marca" placeholder="Marca" id="marca" class="form-control">
+            <label for="subcategoria">Subcategoria:</label>
+                <input type="text" name="subcategoria" id="sub" placeholder="Subcategoria" class="form-control">
+            <label for="quantidade">Quantidade:</label>
+                <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade" class="form-control">
+            <label for="medida" class="mt-1">Unidade de medida:</label>
+            <br>
+            <select name="medida" id="medida">
+                <option value="quilograma">Quilograma</option>
+                <option value="litro">Litro</option>
+            </select>
+            <br>
+            <label for="categoria" class="mt-1">Categoria:</label>
+            <br>
+            <select name="categorias" id="categorias">
+                {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                {{else}}
+                    <option value="0">Nenhuma categoria registrada</option>
+                {{/each}}
+            </select>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Cadastrar Produtos</button>
+        </form>
+    </div>
+</div>

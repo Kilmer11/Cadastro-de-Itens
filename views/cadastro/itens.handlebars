@@ -1,0 +1,23 @@
+{{#each itens}}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h2>{{nomeItem}}</h4>
+            <small>Marca: {{marca}}</small>
+            <br>
+            <small>Subcategoria: {{subCategoria}}</small>
+            <br>
+            <small>Unidade de medida: {{medida}}</small>
+            <br>
+            <small>Quantidade: {{quantidade}}</small>
+            <br>
+            <a href="/cadastro/itens/saida/{{_id}}"><button class="btn btn-success mt-1">Saída de itens</button></a>
+        
+            <form action="/cadastro/itens/deletar" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2">Deletar item</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+    <p>Nenhum item cadastrado</p>
+{{/each}}

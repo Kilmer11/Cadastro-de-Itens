@@ -1,0 +1,25 @@
+{{#each erros}}
+    <div class="alert-danger alert">{{text}}</div>
+{{else}}
+
+{{/each}}
+
+<h1>Saída de Itens:</h1>
+<div class="card">
+    <div class="card-body">
+        <form action="/cadastro/itens/saida" method="post">
+            <input type="hidden" name="id" value="{{item._id}}">
+            <h5>Categoria: {{item.categoria}}</h5>
+            <h6>Nome: {{item.nomeItem}}</h6>
+            <h6>Marca: {{item.marca}}</h6>
+            <h6>Subcategoria: {{item.subCategoria}}</h6>
+            <h6>Unidade de medida: {{item.medida}}</h6>
+            
+            
+            <label for="quantidade">Quantidade:</label>
+                <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade" class="form-control" value="{{item.quantidade}}">
+            <br>
+                <button type="submit" class="btn btn-success">Editar Produtos</button>
+        </form>
+    </div>
+</div>
